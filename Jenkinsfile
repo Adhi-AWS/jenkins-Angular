@@ -7,8 +7,11 @@ node {
         sh "npm install"
     }
 
-    stage("Test") {
-        sh "npm run test-headless"
+        stage('SonarQube-Scan')
+    {
+        nodejs(nodeJSInstallationName: 'nodejs-18.4.0'){
+        sh "npm run sonar"
+    }
     }
 
     stage("Build") {
