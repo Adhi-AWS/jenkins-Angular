@@ -3,8 +3,10 @@ node {
         git branch: 'jenkins_test', url: 'https://github.com/Adhi-AWS/jenkins-Angular.git'
     }
 
-    stage('Install node modules') {
+    stage('Install node modules')    {
+        nodejs(nodeJSInstallationName: 'nodejs-18.4.0'){
         sh "npm install"
+    }
     }
 
         stage('SonarQube-Scan')
